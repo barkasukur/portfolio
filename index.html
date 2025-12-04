@@ -404,82 +404,104 @@
             border-radius: 0 4px 4px 0;
         }
 
-        /* Education & Experience - Two Column Layout */
-        .two-column-section {
+        /* Two-Column Layouts */
+        .two-column-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
+            align-items: start;
         }
 
-        .two-column-section .section-title {
-            grid-column: 1 / -1;
-        }
-
-        .column {
+        .column-card {
             background-color: white;
             padding: 30px;
             border-radius: 8px;
             box-shadow: var(--shadow);
-            height: fit-content;
+            height: 100%;
         }
 
-        .column h2 {
-            margin-bottom: 25px;
+        .column-card h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--light-gray);
         }
 
-        /* Specific styles for Education column */
-        .education-column .education-item {
+        /* Education Column */
+        .education-item {
             margin-bottom: 25px;
             padding-bottom: 20px;
             border-bottom: 1px solid var(--light-gray);
         }
 
-        .education-column .education-item:last-child {
+        .education-item:last-child {
             border-bottom: none;
             margin-bottom: 0;
             padding-bottom: 0;
         }
 
-        .education-column .education-item h3 {
+        .education-item h4 {
             color: var(--primary);
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 8px;
         }
 
-        .education-column .education-item p {
+        .education-item .degree {
+            font-weight: 600;
+            color: var(--dark);
             margin-bottom: 5px;
+        }
+
+        .education-item .school {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        .education-item .details {
+            margin-top: 10px;
+            font-size: 0.95rem;
             color: var(--gray);
         }
 
-        /* Specific styles for Experience column */
-        .experience-column .experience-item {
+        /* Experience Column */
+        .experience-item {
             margin-bottom: 25px;
             padding-bottom: 20px;
             border-bottom: 1px solid var(--light-gray);
         }
 
-        .experience-column .experience-item:last-child {
+        .experience-item:last-child {
             border-bottom: none;
             margin-bottom: 0;
             padding-bottom: 0;
         }
 
-        .experience-column .experience-item h3 {
+        .experience-item h4 {
             color: var(--primary);
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 8px;
             display: flex;
             align-items: center;
         }
 
-        .experience-column .experience-item h3 i {
+        .experience-item h4 i {
             margin-right: 10px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
-        .experience-column .experience-item p {
-            margin-bottom: 5px;
+        .experience-item .duration {
+            display: inline-block;
+            background-color: rgba(139, 195, 74, 0.1);
+            color: var(--secondary);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        .experience-item p {
             color: var(--gray);
+            font-size: 0.95rem;
         }
 
         /* Skills */
@@ -679,13 +701,9 @@
                 margin: 0 auto;
             }
             
-            .two-column-section {
+            .two-column-layout {
                 grid-template-columns: 1fr;
                 gap: 30px;
-            }
-            
-            .column {
-                padding: 25px;
             }
             
             .vision-container {
@@ -777,8 +795,8 @@
                 padding: 60px 0;
             }
             
-            .column {
-                padding: 20px;
+            .column-card {
+                padding: 25px;
             }
         }
 
@@ -811,9 +829,8 @@
                 min-width: 100%;
             }
             
-            .education-column .education-item h3,
-            .experience-column .experience-item h3 {
-                font-size: 1.2rem;
+            .column-card {
+                padding: 20px;
             }
         }
     </style>
@@ -832,7 +849,8 @@
                 <ul class="nav-links" id="navLinks">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#profile">Profile</a></li>
-                    <li><a href="#education-experience">Education & Experience</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#experience">Experience</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#gallery">Gallery</a></li>
                     <li><a href="#vision">Vision</a></li>
@@ -877,7 +895,7 @@
                     <div class="gallery-slide-content">
                         <h2>Livestock Management</h2>
                         <p>Expert care for goats, rams, and poultry with focus on nutrition formulation, disease prevention, and sustainable waste management practices for maximum productivity.</p>
-                        <button class="btn btn-secondary" onclick="window.location.href='#education-experience'">Learn More</button>
+                        <button class="btn btn-secondary" onclick="window.location.href='#experience'">Learn More</button>
                     </div>
                 </div>
             </div>
@@ -926,57 +944,98 @@
                     <img src="./image/1.jpg" alt="Barka Sukur Yunana - Agricultural Consultant">
                 </div>
                 <div class="profile-text">
-                    <p>I hold a degree in Agriculture with a specialization in Crop Protection, which gives me a solid foundation in both theory and hands-on practice. Today, I manage a diverse agricultural enterprise that includes livestock and poultry farming, greenhouse operations, and mixed cropping systems. My work bridges traditional knowledge with modern techniques, helping farmers improve productivity, protect their crops, and build more resilient livelihoods.</p>
+                    <p>Growing up in Maiduguri, I saw firsthand the challenges Nigerian farmers face—struggling with poor soil quality, ineffective pest control, and outdated farming methods. These experiences ignited my passion for agriculture and shaped my commitment to finding practical, sustainable solutions for our farming communities.</p>
                     
                     <div class="highlight">
-                        <p>I believe in agriculture that works for the farmer—rooted in science, adapted to local conditions, and focused on long-term sustainability. Whether consulting on pest management, training in greenhouse techniques, or supporting livestock health, my goal is the same: to help Nigerian farmers thrive.</p>
+                        <p>I hold a degree in Agriculture with a specialization in Crop Protection, which gives me a solid foundation in both theory and hands-on practice. Today, I manage a diverse agricultural enterprise that includes livestock and poultry farming, greenhouse operations, and mixed cropping systems.</p>
                     </div>
                     
-                
+                    <p>My work bridges traditional knowledge with modern techniques, helping farmers improve productivity, protect their crops, and build more resilient livelihoods. I believe in agriculture that works for the farmer—rooted in science, adapted to local conditions, and focused on long-term sustainability.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Education & Experience Sections in Two Columns -->
-    <section id="education-experience" style="background-color: var(--light-gray);">
+    <!-- Education Section -->
+    <section id="education" style="background-color: var(--light-gray);">
         <div class="container">
             <div class="section-title">
-                <h2>Education & Experience</h2>
+                <h2>Education & Qualifications</h2>
             </div>
-            <div class="two-column-section">
-                <!-- Education Column -->
-                <div class="column education-column">
-                    <h2>Education & Background</h2>
+            <div class="two-column-layout">
+                <!-- Column 1: Formal Education -->
+                <div class="column-card">
+                    <h3>📚 Formal Education</h3>
                     <div class="education-item">
-                        <h3>B.Sc. in Agriculture</h3>
-                        <p><strong>Specialization: Crop Protection</strong></p>
-                        <p>University of Maiduguri</p>
+                        <h4>Bachelor's Degree</h4>
+                        <p class="degree">B.Sc. in Agriculture</p>
+                        <p class="school">University (via Remedial Programme)</p>
+                        <p class="details"><strong>Specialization:</strong> Crop Protection<br>
+                        Comprehensive study of agricultural sciences with focus on plant health and pest management.</p>
                     </div>
                     <div class="education-item">
-                        <h3>Secondary Education</h3>
-                        <p><strong>Maiduguri Innovative School</strong></p>
-                        <p>SSCE Certificate</p>
+                        <h4>Secondary Education</h4>
+                        <p class="degree">SSCE Certificate</p>
+                       
+                    </div>
+                </div>
+            
+                       
+                    <div class="education-item">
+                        <h4>Field Training & Workshops</h4>
+                        <p class="details">• Comprehensive Year 4 field training in livestock, poultry, and greenhouse management<br>
+                        • Specialized workshops on pest management using botanical and biological methods<br>
+                        • Training in grafting, layering, and modern agricultural techniques</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Professional Experience</h2>
+            </div>
+            <div class="two-column-layout">
+                <!-- Column 1: Livestock & Poultry -->
+                <div class="column-card">
+                    <h3>🐐 Livestock & Poultry Management</h3>
+                    <div class="experience-item">
+                        <h4><i class="fas fa-goat"></i> Livestock Farming</h4>
+                        <span class="duration">3+ Years Experience</span>
+                        <p>Managing goats and rams with expertise in ration formulation, disease prevention, and sustainable waste recycling practices.</p>
+                    </div>
+                    <div class="experience-item">
+                        <h4><i class="fas fa-egg"></i> Poultry Farming</h4>
+                        <span class="duration">Ongoing</span>
+                        <p>Operating both layer and broiler poultry systems with focus on efficient farm management and commercial production.</p>
+                    </div>
+                    <div class="experience-item">
+                        <h4><i class="fas fa-heartbeat"></i> Animal Health Management</h4>
+                        <span class="duration">Specialized</span>
+                        <p>Implementing preventive healthcare programs and nutrition strategies for optimal livestock productivity.</p>
                     </div>
                 </div>
                 
-                <!-- Experience Column -->
-                <div class="column experience-column">
-                    <h2>Professional Experience</h2>
+                <!-- Column 2: Crop Production -->
+                <div class="column-card">
+                    <h3>🌱 Crop Production Systems</h3>
                     <div class="experience-item">
-                        <h3><i class="fas fa-goat"></i> Livestock Farming</h3>
-                        <p>Managing goats and rams with expertise in ration formulation, disease prevention, and waste recycling.</p>
+                        <h4><i class="fas fa-seedling"></i> Greenhouse Production</h4>
+                        <span class="duration">2+ Years Experience</span>
+                        <p>Cultivation of high-value crops like chili peppers and vegetables in controlled environment agriculture systems with expansion plans underway.</p>
                     </div>
                     <div class="experience-item">
-                        <h3><i class="fas fa-egg"></i> Poultry Farming</h3>
-                        <p>Layers producing eggs and broiler birds for commercial sales with efficient farm management.</p>
+                        <h4><i class="fas fa-tractor"></i> Field Crop Management</h4>
+                        <span class="duration">3+ Years Experience</span>
+                        <p>Managing mixed cropping systems with groundnut, beans, and beni seed. Implementing integrated pest management and sustainable farming practices.</p>
                     </div>
                     <div class="experience-item">
-                        <h3><i class="fas fa-seedling"></i> Greenhouse Production</h3>
-                        <p>Cultivation of chili peppers 🌶️ and vegetables with expansion plans underway.</p>
-                    </div>
-                    <div class="experience-item">
-                        <h3><i class="fas fa-tractor"></i> Mixed Cropping & Field Agriculture</h3>
-                        <p>3+ years running a farm with groundnut, beans, and beni seed. Implementing pest observation and biological control practices.</p>
+                        <h4><i class="fas fa-bug"></i> Crop Protection</h4>
+                        <span class="duration">Specialized</span>
+                        <p>Applying biological and botanical methods for pest and disease control in various crop systems for sustainable agriculture.</p>
                     </div>
                 </div>
             </div>
@@ -996,14 +1055,14 @@
                     </div>
                     <h3>Final Year Project</h3>
                     <p><strong>"Postharvest Disease Management of Garden Eggs"</strong></p>
-                    <p>Identified fruit pathogens and developed strategies to extend shelf life post-harvest.</p>
+                    <p>Conducted research to identify fruit pathogens and developed practical strategies to extend shelf life and reduce post-harvest losses for small-scale farmers.</p>
                 </div>
                 <div class="vision-card">
                     <div class="vision-icon">
                         <i class="fas fa-leaf"></i>
                     </div>
-                    <h3>Field Training (Year 4)</h3>
-                    <p>Comprehensive training in livestock, poultry, greenhouse, and agronomy practices. Learned pest management using botanical and biological methods, grafting, layering, and greenhouse excursion studies.</p>
+                    <h3>Field Training Program</h3>
+                    <p>Completed comprehensive training covering livestock management, greenhouse operations, and sustainable crop production techniques with emphasis on practical application.</p>
                 </div>
             </div>
         </div>
@@ -1080,7 +1139,7 @@
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="./image/4.jpg" alt="Crop Protection">
+                    <img src="./image/5.jpg" alt="Crop Protection">
                     <div class="gallery-overlay">
                         <h4>Crop Protection</h4>
                         <p>Pest management using biological methods</p>
@@ -1109,14 +1168,14 @@
                         <i class="fas fa-bullseye"></i>
                     </div>
                     <h3>Short-Term Goal</h3>
-                    <p>Launch a professional agricultural consultation service to assist farmers in pest control, disease prevention, and sustainable practices.</p>
+                    <p>Launch a professional agricultural consultation service to assist farmers in pest control, disease prevention, and sustainable practices. Focus on building partnerships with local farming communities.</p>
                 </div>
                 <div class="vision-card">
                     <div class="vision-icon">
                         <i class="fas fa-mountain"></i>
                     </div>
                     <h3>Long-Term Goal</h3>
-                    <p>Establish a system of sustainable agriculture that promotes food security, resilience, and innovation in Nigeria and beyond.</p>
+                    <p>Establish a comprehensive system of sustainable agriculture that promotes food security, resilience, and innovation in Nigeria and across West Africa through education, technology, and community engagement.</p>
                 </div>
             </div>
         </div>
@@ -1157,8 +1216,10 @@
                     <h3>Connect With Me</h3>
                     <p>Feel free to reach out for agricultural consultation, training, or collaboration opportunities.</p>
                     <div class="social-links">
-                        <a href="htps://wa.me/+234706357131"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.tiktok.com/@barsukkii?_r=1&_t=ZS-91wAjw3eQVu"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://wa.me/+2347063571314"><i class="fab fa-whatsapp"></i></a>
                         <a href="https://www.facebook.com/share/17qKZUYGtC/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="barkayunana001@gmail.com"><i class="fab fa-gmail"></i></a>
                         <a href="+2347063571314"><i class="fas fa-phone"></i></a>
                     </div>
                 </div>
