@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barka Sukur Yunana | Agricultural Consultant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2d5a27;
+            --secondary: #8bc34a;
+            --accent: #ff9800;
+            --light: #f9f9f9;
+            --dark: #333;
+            --gray: #777;
+            --light-gray: #f0f0f0;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            display: inline-block;
+        }
+
+        .section-title h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid var(--primary);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+            border-color: var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background-color: transparent;
+            color: var(--secondary);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* Hero Slideshow Section */
+        .hero-slideshow {
+            margin-top: 80px;
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+        }
+
+        .slideshow-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        /* Slide 1 - Profile Information */
+        .slide-1 {
+            background: linear-gradient(rgba(45, 90, 39, 0.9), rgba(45, 90, 39, 0.8)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .slide-content {
+            width: 100%;
+            max-width: 800px;
+            padding: 40px;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-title {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .slide-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--light-gray);
+        }
+
+        .slide-location {
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .slide-location i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+
+        /* Other Slides - Gallery Images */
+        .slide-2 {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .slide-3 {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .slide-4 {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1560493676-04071c5f467b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .gallery-slide-content {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: 40px;
+            border-radius: 8px;
+        }
+
+        .gallery-slide-content h2 {
+            color: var(--secondary);
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .gallery-slide-content h2:after {
+            display: none;
+        }
+
+        .gallery-slide-content p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .slideshow-controls {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .slide-dots {
+            display: flex;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .dot.active {
+            background-color: var(--secondary);
+            transform: scale(1.2);
+        }
+
+        .slideshow-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .slide-nav-btn {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .slide-nav-btn:hover {
+            background-color: var(--primary);
+        }
+
+        /* Profile Section */
+        .profile-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .profile-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .profile-text {
+            flex: 1.5;
+        }
+
+        .highlight {
+            background-color: rgba(139, 195, 74, 0.1);
+            border-left: 4px solid var(--secondary);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        /* Education & Experience */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--secondary);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: 45%;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            text-align: right;
+        }
+
+        .timeline-icon {
+            position: absolute;
+            left: 50%;
+            top: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        /* Skills */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        /* Gallery Section */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            height: 250px;
+            position: relative;
+            box-shadow: var(--shadow);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 15px;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* Vision & Goals */
+        .vision-container {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .vision-card {
+            flex: 1;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .vision-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-slideshow {
+                height: 500px;
+            }
+            
+            .slide-title {
+                font-size: 2.5rem;
+            }
+            
+            .slide-subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .gallery-slide-content {
+                margin-right: 20px;
+                padding: 30px;
+            }
+            
+            .gallery-slide-content h2 {
+                font-size: 2rem;
+            }
+            
+            .profile-content {
+                flex-direction: column;
+            }
+            
+            .profile-img {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            
+            .timeline:before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                flex-direction: row !important;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 80px);
+                margin-left: 80px;
+                text-align: left !important;
+            }
+            
+            .timeline-icon {
+                left: 30px;
+            }
+            
+            .vision-container {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.7rem;
+            }
+            
+            .hero-slideshow {
+                height: 450px;
+                margin-top: 70px;
+            }
+            
+            .slide-content {
+                padding: 20px;
+                text-align: center;
+            }
+            
+            .slide-title {
+                font-size: 2rem;
+            }
+            
+            .slide-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .gallery-slide-content {
+                margin: 0 20px;
+                padding: 20px;
+                text-align: center;
+            }
+            
+            .gallery-slide-content h2 {
+                font-size: 1.7rem;
+            }
+            
+            .gallery-slide-content p {
+                font-size: 1rem;
+            }
+            
+            .slideshow-nav {
+                padding: 0 10px;
+            }
+            
+            .slide-nav-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: var(--shadow);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .hero-slideshow {
+                height: 400px;
+            }
+            
+            .slide-title {
+                font-size: 1.8rem;
+            }
+            
+            .gallery-slide-content h2 {
+                font-size: 1.5rem;
+            }
+            
+            .gallery-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-column {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <h1>Barka<span>Sukur</span></h1>
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#profile">Profile</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#vision">Vision</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Slideshow Section -->
+    <section class="hero-slideshow" id="home">
+        <div class="slideshow-container">
+            <!-- Slide 1 - Profile Information -->
+            <div class="slide slide-1 active">
+                <div class="container">
+                    <div class="slide-content">
+                        <h1 class="slide-title">🌾 Barka Sukur Yunana</h1>
+                        <div class="slide-subtitle">Agricultural Consultant | Livestock & Crop Specialist | Sustainability Advocate</div>
+                        <div class="slide-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Madagali, Adamawa State | Based in Maiduguri, Borno State, Nigeria</span>
+                        </div>
+                        <a href="#contact" class="btn">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 2 - Greenhouse Farming -->
+            <div class="slide slide-2">
+                <div class="container">
+                    <div class="gallery-slide-content">
+                        <h2>Greenhouse Farming</h2>
+                        <p>Specializing in controlled environment agriculture for high-value crops like chili peppers and vegetables. Our greenhouse systems ensure year-round production with optimal growing conditions.</p>
+                        <button class="btn btn-secondary" onclick="window.location.href='#gallery'">View More</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 3 - Livestock Management -->
+            <div class="slide slide-3">
+                <div class="container">
+                    <div class="gallery-slide-content">
+                        <h2>Livestock Management</h2>
+                        <p>Expert care for goats, rams, and poultry with focus on nutrition formulation, disease prevention, and sustainable waste management practices for maximum productivity.</p>
+                        <button class="btn btn-secondary" onclick="window.location.href='#experience'">Learn More</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 4 - Crop Protection -->
+            <div class="slide slide-4">
+                <div class="container">
+                    <div class="gallery-slide-content">
+                        <h2>Crop Protection & Pest Management</h2>
+                        <p>Implementing biological and botanical methods to control pests and diseases in field crops including groundnut, beans, and beni seed for sustainable agriculture.</p>
+                        <button class="btn btn-secondary" onclick="window.location.href='#skills'">Explore Skills</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Navigation Buttons -->
+            <div class="slideshow-nav">
+                <button class="slide-nav-btn" id="prevBtn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="slide-nav-btn" id="nextBtn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <!-- Dots Indicator -->
+            <div class="slideshow-controls">
+                <div class="slide-dots">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
+                    <span class="dot" data-slide="3"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section id="profile">
+        <div class="container">
+            <div class="section-title">
+                <h2>Profile Summary</h2>
+            </div>
+            <div class="profile-content">
+                <div class="profile-img">
+                    <img src="./image/1.jpg" alt="Barka Sukur Yunana - Agricultural Consultant">
+                </div>
+                <div class="profile-text">
+                    <p>I am a passionate agriculturist committed to solving real-world challenges facing farmers across Nigeria. Born and raised in Maiduguri, I grew up witnessing firsthand the struggles of local farmers — from poor soil treatment to inefficient pest control — and committed myself to finding sustainable solutions through modern agricultural practices.</p>
+                    
+                    <div class="highlight">
+                        <p>With a degree in Agriculture and a specialization in Crop Protection, I bring both theoretical knowledge and practical experience. I manage a growing agricultural business involving livestock, poultry, greenhouses, and mixed cropping systems.</p>
+                    </div>
+                    
+                    <p>My mission is to provide expert agricultural consultation services that help farmers boost productivity, fight pest-related losses, and build a food-secure Nigeria.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" style="background-color: var(--light-gray);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Education & Background</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>B.Sc. in Agriculture</h3>
+                        <p><strong>Specialization: Crop Protection</strong></p>
+                        <p>University (via Remedial Programme)</p>
+                    </div>
+                    <div class="timeline-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Secondary Education</h3>
+                        <p><strong>Maiduguri Innovative School</strong></p>
+                        <p>Hands-on agricultural projects like groundnut oil pressing machines</p>
+                        <p><strong>Ansaar-ud-Deen Secondary School</strong></p>
+                        <p>SSCE Certificate</p>
+                    </div>
+                    <div class="timeline-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Professional Experience</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-goat"></i>
+                    </div>
+                    <h3>Livestock Farming</h3>
+                    <p>Managing goats and rams with expertise in ration formulation, disease prevention, and waste recycling.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-egg"></i>
+                    </div>
+                    <h3>Poultry Farming</h3>
+                    <p>layers producing eggs and broiler birds for commercial sales with efficient farm management.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Greenhouse Production</h3>
+                    <p>Cultivation of chili peppers 🌶️ and vegetables with expansion plans underway.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-tractor"></i>
+                    </div>
+                    <h3>Mixed Cropping & Field Agriculture</h3>
+                    <p>3+ years running a farm with groundnut, beans, and beni seed. Implementing pest observation and biological control practices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academic Projects -->
+    <section style="background-color: var(--light-gray);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Academic Projects</h2>
+            </div>
+            <div class="vision-container">
+                <div class="vision-card">
+                    <div class="vision-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Final Year Project</h3>
+                    <p><strong>"Postharvest Disease Management of Garden Eggs"</strong></p>
+                    <p>Identified fruit pathogens and developed strategies to extend shelf life post-harvest.</p>
+                </div>
+                <div class="vision-card">
+                    <div class="vision-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Field Training (Year 4)</h3>
+                    <p>Comprehensive training in livestock, poultry, greenhouse, and agronomy practices. Learned pest management using botanical and biological methods, grafting, layering, and greenhouse excursion studies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>Core Skills</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <h3><i class="fas fa-bug" style="color: var(--primary); margin-right: 10px;"></i> Crop Protection & Pest Management</h3>
+                    <p>Expertise in identifying and controlling agricultural pests using sustainable methods.</p>
+                </div>
+                <div class="skill-card">
+                    <h3><i class="fas fa-heartbeat" style="color: var(--primary); margin-right: 10px;"></i> Livestock Nutrition & Disease Control</h3>
+                    <p>Formulating balanced rations and implementing disease prevention strategies.</p>
+                </div>
+                <div class="skill-card">
+                    <h3><i class="fas fa-kiwi-bird" style="color: var(--primary); margin-right: 10px;"></i> Poultry Farm Operations</h3>
+                    <p>Managing both layer and broiler operations for optimal productivity.</p>
+                </div>
+                <div class="skill-card">
+                    <h3><i class="fas fa-temperature-high" style="color: var(--primary); margin-right: 10px;"></i> Greenhouse Management</h3>
+                    <p>Controlled environment agriculture for high-value crops like chili peppers.</p>
+                </div>
+                <div class="skill-card">
+                    <h3><i class="fas fa-seedling" style="color: var(--primary); margin-right: 10px;"></i> Mixed Cropping Systems</h3>
+                    <p>Implementing diversified farming systems for resilience and productivity.</p>
+                </div>
+                <div class="skill-card">
+                    <h3><i class="fas fa-chalkboard-teacher" style="color: var(--primary); margin-right: 10px;"></i> Farmer Training & Consultation</h3>
+                    <p>Educating and supporting farmers in adopting modern agricultural practices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" style="background-color: var(--light-gray);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Gallery</h2>
+            </div>
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="./image/8.jpg" alt="Greenhouse Farming">
+                    <div class="gallery-overlay">
+                        <h4>Greenhouse Farming</h4>
+                        <p>Chili pepper cultivation in controlled environment</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./image/7.jpg" alt="Livestock Management">
+                    <div class="gallery-overlay">
+                        <h4>Livestock Management</h4>
+                        <p>Goat and ram farming with proper nutrition</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./image/3.jpg" alt="Poultry Farming">
+                    <div class="gallery-overlay">
+                        <h4>Poultry Farming</h4>
+                        <p>Layer and broiler bird management</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./image/5.jpg" alt="Mixed Cropping">
+                    <div class="gallery-overlay">
+                        <h4>Mixed Cropping</h4>
+                        <p>Groundnut, beans, and beni seed cultivation</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./image/5.jpg" alt="Crop Protection">
+                    <div class="gallery-overlay">
+                        <h4>Crop Protection</h4>
+                        <p>Pest management using biological methods</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="/image/7.jpg" alt="Field Training">
+                    <div class="gallery-overlay">
+                        <h4>Field Training</h4>
+                        <p>Hands-on agricultural education</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision & Goals -->
+    <section id="vision">
+        <div class="container">
+            <div class="section-title">
+                <h2>Vision & Goals</h2>
+            </div>
+            <div class="vision-container">
+                <div class="vision-card">
+                    <div class="vision-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Short-Term Goal</h3>
+                    <p>Launch a professional agricultural consultation service to assist farmers in pest control, disease prevention, and sustainable practices.</p>
+                </div>
+                <div class="vision-card">
+                    <div class="vision-icon">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <h3>Long-Term Goal</h3>
+                    <p>Establish a system of sustainable agriculture that promotes food security, resilience, and innovation in Nigeria and beyond.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer & Contact -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Contact Information</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-user"></i>
+                            <span><strong>Barka Sukur Yunana</strong><br>Agricultural Consultant</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Based in Maiduguri, Borno State<br>Nigeria</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>Contact via social media or phone</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Areas of Expertise</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-check-circle"></i> Crop Protection</li>
+                        <li><i class="fas fa-check-circle"></i> Livestock Management</li>
+                        <li><i class="fas fa-check-circle"></i> Greenhouse Production</li>
+                        <li><i class="fas fa-check-circle"></i> Farmer Training</li>
+                        <li><i class="fas fa-check-circle"></i> Sustainable Agriculture</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect With Me</h3>
+                    <p>Feel free to reach out for agricultural consultation, training, or collaboration opportunities.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Barka Sukur Yunana. All Rights Reserved. | Designed by EflezTech</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if(window.scrollY > 100) {
+                header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.05)';
+            }
+        });
+        
+        // Slideshow functionality
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        
+        let currentSlide = 0;
+        const slideInterval = 5000; // 5 seconds
+        
+        // Function to show a specific slide
+        function showSlide(index) {
+            // Hide all slides
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+            
+            // Remove active class from all dots
+            dots.forEach(dot => {
+                dot.classList.remove('active');
+            });
+            
+            // Show the current slide and activate corresponding dot
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+            
+            currentSlide = index;
+        }
+        
+        // Function to show next slide
+        function nextSlide() {
+            let nextIndex = currentSlide + 1;
+            if (nextIndex >= slides.length) {
+                nextIndex = 0;
+            }
+            showSlide(nextIndex);
+        }
+        
+        // Function to show previous slide
+        function prevSlide() {
+            let prevIndex = currentSlide - 1;
+            if (prevIndex < 0) {
+                prevIndex = slides.length - 1;
+            }
+            showSlide(prevIndex);
+        }
+        
+        // Event listeners for next and previous buttons
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            resetTimer(); // Reset timer when manually changing slides
+        });
+        
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            resetTimer(); // Reset timer when manually changing slides
+        });
+        
+        // Event listeners for dots
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+                resetTimer(); // Reset timer when manually changing slides
+            });
+        });
+        
+        // Auto slide functionality
+        let slideTimer;
+        
+        function startTimer() {
+            slideTimer = setInterval(nextSlide, slideInterval);
+        }
+        
+        function resetTimer() {
+            clearInterval(slideTimer);
+            startTimer();
+        }
+        
+        // Start the automatic slideshow
+        startTimer();
+        
+        // Pause slideshow on hover
+        const slideshowContainer = document.querySelector('.slideshow-container');
+        slideshowContainer.addEventListener('mouseenter', () => {
+            clearInterval(slideTimer);
+        });
+        
+        slideshowContainer.addEventListener('mouseleave', () => {
+            startTimer();
+        });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevSlide();
+                resetTimer();
+            } else if (e.key === 'ArrowRight') {
+                nextSlide();
+                resetTimer();
+            }
+        });
+    </script>
+</body>
+</html>
